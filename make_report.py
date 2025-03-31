@@ -3,7 +3,7 @@ import glob
 from tabulate import tabulate
 import re
 
-model_prefix = 'qwq-32b-q4_k_m '
+model_prefix = 'QwQ-32B-AWQ '
 rr_pattern = re.compile(r'rr(\d+)_(\d+)')
 data = []
 
@@ -31,4 +31,4 @@ for file in sorted(glob.glob(model_prefix+"*.json")):
 
 data.sort(key=lambda x: x['median_otps'])
 
-print(tabulate(data, headers="keys"))
+print(tabulate(data, headers="keys", tablefmt="github"))
